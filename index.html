@@ -13,7 +13,7 @@
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+if(!f._fbq)f._._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
@@ -112,14 +112,14 @@ body {
 }
 
 .logo-circle-wrapper {
-    width: 130px; /* Logo size set to 130px */
-    height: 130px; /* Logo size set to 130px */
+    width: 130px; 
+    height: 140px; /* HEIGHT INCREASED to fit two lines of text */
     border-radius: 50%;
     background-color: transparent; 
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Margin increased for better spacing */
     overflow: hidden;
     box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
 }
@@ -266,7 +266,6 @@ function manualRedirect(){
     
         <div class="whatsapp-logo">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
-        WhatsApp
     </div>
     
         <div class="download-icon"></div>
@@ -275,7 +274,7 @@ function manualRedirect(){
 <div class="content">
     
         <div class="logo-circle-wrapper">
-                    <img src="reddy-anna-logo.png" alt="REDDY ANNA Logo"> 
+        <img src="reddy-anna-logo.png" alt="REDDY ANNA Logo"> 
     </div>
     <div class="company-name">REDDY ANNA</div>
     
