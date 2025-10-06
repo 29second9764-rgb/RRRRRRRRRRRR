@@ -38,14 +38,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
 }
 
-/* --- POSTER STYLING (NEW) --- */
+/* --- POSTER STYLING --- */
 .poster-container {
-    width: 100%; /* Take up the full width of the content area (max-width: 400px) */
+    width: 100%;
     max-width: 400px;
-    margin-bottom: 30px; /* Space below the poster */
+    margin-bottom: 30px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -69,6 +68,8 @@ body {
     align-items: center;
     box-sizing: border-box;
     position: relative;
+    top: 0;
+    z-index: 100;
 }
 
 /* Centered WhatsApp Logo Group */
@@ -126,7 +127,9 @@ body {
     max-width: 400px;
     width: 100%;
     box-sizing: border-box;
-    padding-top: 20px; /* Adjusted padding-top as poster is now at the top */
+    padding-top: 20px;
+    /* यह पैडिंग पेज को स्क्रॉल करने योग्य बनाने के लिए है */
+    padding-bottom: 550px;
 }
 
 .logo-circle-wrapper {
@@ -137,7 +140,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px; /* Adjusted margin */
+    margin-bottom: 20px;
     overflow: hidden;
 }
 
@@ -151,7 +154,7 @@ body {
 .company-name {
     font-size: 1.6em;
     font-weight: 700;
-    margin-bottom: 25px; /* Adjusted margin for tighter grouping */
+    margin-bottom: 25px;
     color: #fff;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
 }
@@ -212,10 +215,13 @@ body {
 }
 
 .download-app-section {
-    margin-top: auto;
-    padding-bottom: 20px;
     font-size: 0.99em;
     color: #b0b0b0;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
 
 .download-app-section a {
@@ -268,16 +274,16 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     intervalId = setInterval(updateCountdown, 1000);
 
-    // Optional Auto-Scroll (Comment out or remove if not needed)
-    /*
+    // 🌟 ऑटो-स्क्रॉलिंग लॉजिक 🌟
+    // पेज लोड होने के 5 सेकंड बाद धीरे से 500 पिक्सेल नीचे स्क्रॉल करें
     setTimeout(() => {
         window.scrollBy({
-            top: 100,
+            top: 500, // स्क्रॉल दूरी
             left: 0,
-            behavior: 'smooth'
+            behavior: 'smooth' // धीमी स्क्रॉलिंग के लिए
         });
-    }, 3000);
-    */
+    }, 5000); // 5 सेकंड (5000ms) की देरी
+    // 🌟 एंड ऑटो-स्क्रॉल 🌟
 });
 
 
@@ -321,7 +327,7 @@ function manualRedirect(){
         </div>
     </div>
 
-        <div class="download-app-section">
+    <div class="download-app-section">
         Don't have WhatsApp yet? <a href="https://www.whatsapp.com/download/" target="_blank">Download</a>
     </div>
 </div>
