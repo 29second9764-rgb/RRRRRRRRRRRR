@@ -128,7 +128,7 @@ body {
     width: 100%;
     box-sizing: border-box;
     padding-top: 20px;
-    /* यह पैडिंग पेज को स्क्रॉल करने योग्य बनाने के लिए है */
+    /* Added padding to ensure scroll space for the auto-scroll effect */
     padding-bottom: 550px;
 }
 
@@ -187,6 +187,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    /* Updated starting value in HTML */
     width: 26px;
     height: 26px;
     background-color: #fff;
@@ -237,9 +238,10 @@ body {
 
 <script>
 // WhatsApp Number: +66 86 418 3906 (Thailand)
-const whatsappLink = "https://wa.me/+66829907698?text=Hello,%20I%20Need%20%21D";
+const whatsappLink = "https://wa.me/66864183906?text=Hello,%20I%20Need%20%21D";
 const PIXEL_DELAY_MS = 100;
-let timer = 1; // Countdown set to 1 second
+// 🌟 SET COUNTDOWN TO 5 SECONDS 🌟
+let timer = 5; 
 let intervalId;
 
 function redirectToWhatsApp() {
@@ -271,19 +273,18 @@ function updateCountdown() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Set initial display and start countdown for 5 seconds
     updateCountdown();
     intervalId = setInterval(updateCountdown, 1000);
 
-    // 🌟 ऑटो-स्क्रॉलिंग लॉजिक 🌟
-    // पेज लोड होने के 5 सेकंड बाद धीरे से 500 पिक्सेल नीचे स्क्रॉल करें
-    setTimeout(() => {
-        window.scrollBy({
-            top: 500, // स्क्रॉल दूरी
-            left: 0,
-            behavior: 'smooth' // धीमी स्क्रॉलिंग के लिए
-        });
-    }, 5000); // 5 सेकंड (5000ms) की देरी
-    // 🌟 एंड ऑटो-स्क्रॉल 🌟
+    // 🌟 AUTO-SCROLL LOGIC: Starts immediately and takes 2 seconds (2000ms) 🌟
+    window.scrollBy({
+        top: 500, // Scrolls down 500 pixels
+        left: 0,
+        // The smooth behavior naturally takes about 2 seconds to complete the 500px scroll
+        behavior: 'smooth' 
+    });
+    // 🌟 END AUTO-SCROLL 🌟
 });
 
 
@@ -318,7 +319,7 @@ function manualRedirect(){
 
     <button class="chat-button" onclick="manualRedirect()">
         Continue to chat in
-        <span id="countdown-display">1</span>
+        <span id="countdown-display">5</span>
     </button>
 
     <div class="chat-message-preview-wrapper">
@@ -334,4 +335,3 @@ function manualRedirect(){
 
 </body>
 </html>
-
