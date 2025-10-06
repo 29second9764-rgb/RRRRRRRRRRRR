@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Official Chat - LOTUS REDDY</title>
+<title>Official Service - LOTUS REDDY</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
@@ -33,59 +33,54 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a; /* Dark gray background for professionalism */
-    color: #f0f0f0;
+    background-color: #121212; /* Deep dark background */
+    color: #e0e0e0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh; /* Ensure full height for centering */
 }
 
-/* --- HEADER STYLING --- */
+/* --- HEADER STYLING (Simple Brand Header) --- */
 .header {
     width: 100%;
     background-color: #000;
-    padding: 15px 20px;
+    padding: 12px 20px;
     box-sizing: border-box;
-    position: relative;
-    z-index: 100;
-}
-.header .whatsapp-logo { 
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8.5px;
-    font-size: 1.2em;
+    text-align: center;
+    font-size: 1.1em;
     font-weight: 700;
+    color: #999;
+    border-bottom: 1px solid #333;
 }
-.header .whatsapp-logo img {
-    width: 28px;
-    height: 28px;
+.header .whatsapp-logo { /* Simplified to just show the text/context */
+    display: block;
+    font-size: 0.9em;
+    font-weight: 400;
 }
 
-/* --- CONTENT STYLING --- */
+/* --- CONTENT STYLING (Centered) --- */
 .content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center; /* Center content vertically */
     padding: 20px;
     text-align: center;
     max-width: 400px;
     width: 100%;
     box-sizing: border-box;
-    padding-top: 50px; /* Increased top padding since poster is removed */
-    padding-bottom: 550px;
 }
 
 .logo-circle-wrapper {
     width: 130px;
     height: 140px;
     border-radius: 50%;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     overflow: hidden;
-    border: 3px solid #4CAF50; /* Green border for trust */
+    border: 3px solid #00BCD4; /* Subtle blue border for professionalism */
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
 }
 
 .logo-circle-wrapper img {
@@ -96,11 +91,11 @@ body {
 }
 
 .company-name {
-    font-size: 1.6em;
-    font-weight: 700;
-    margin-bottom: 35px; /* Increased margin */
+    font-size: 1.8em;
+    font-weight: 900;
+    margin-bottom: 40px; 
     color: #fff;
-    text-shadow: none;
+    letter-spacing: 0.5px;
 }
 
 .chat-button {
@@ -108,10 +103,10 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background-color: #25D366; /* Standard WhatsApp Green */
+    background-color: #00BCD4; /* Clean blue-teal button */
     color: #fff;
-    padding: 14px 30px; 
-    border-radius: 30px;
+    padding: 16px 35px; 
+    border-radius: 4px; /* Square edges look more professional */
     text-decoration: none;
     font-weight: 700;
     font-size: 1.2em;
@@ -119,39 +114,36 @@ body {
     transition: background-color 0.2s ease, transform 0.1s ease;
     border: none; 
     margin-bottom: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 .chat-button:hover {
-    background-color: #128C7E;
-    transform: translateY(-1px) scale(1.01); 
+    background-color: #0097A7;
+    transform: translateY(-1px); 
 }
 
 #countdown-display {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     background-color: #fff; 
     border-radius: 50%;
-    font-size: 0.85em;
+    font-size: 1em;
     font-weight: 900;
-    color: #25D366;
+    color: #00BCD4;
 }
 
 .download-app-section {
-    font-size: 0.9em;
-    color: #aaa;
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    max-width: 400px;
+    font-size: 0.85em;
+    color: #666;
     text-align: center;
+    padding-top: 50px;
 }
 
 .download-app-section a {
-    color: #2196F3;
+    color: #00BCD4;
     text-decoration: none;
     font-weight: 700;
 }
@@ -159,7 +151,6 @@ body {
 
 <script>
 // WhatsApp Number: +66 86 418 3906 (Thailand)
-// Reverted to a standard, non-aggressive initial message
 const whatsappLink = "https://wa.me/66864183906?text=Hello,%20I%20am%20coming%20from%20your%20landing%20page.";
 const PIXEL_DELAY_MS = 100;
 
@@ -200,12 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     intervalId = setInterval(updateCountdown, 1000);
 
-    // 🌟 AUTO-SCROLL LOGIC: Immediate start, ~2 seconds smooth scroll 🌟
-    window.scrollBy({
-        top: 500, // Scrolls down 500 pixels
-        left: 0,
-        behavior: 'smooth' 
-    });
+    // AUTO-SCROLL LOGIC HAS BEEN REMOVED
 });
 
 
@@ -218,26 +204,24 @@ function manualRedirect() {
 <body>
 
 <div class="header">
-        <div class="whatsapp-logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
-        Official Chat Support
-    </div>
+    LOTUS REDDY Official
+    <div class="whatsapp-logo">Secure Chat Link</div>
 </div>
 
 <div class="content">
-
+    
     <div class="logo-circle-wrapper">
         <img src="lotus-reddy-logo.png" alt="LOTUS REDDY Logo">
     </div>
-    <div class="company-name">LOTUS REDDY Official</div>
+    <div class="company-name">LOTUS REDDY</div>
 
     <button id="chat-button" class="chat-button" onclick="manualRedirect()">
-        Continue to Chat in
+        Chat with Support in
         <span id="countdown-display">5</span>
     </button>
 
     <div class="download-app-section">
-        Don't have WhatsApp? <a href="https://www.whatsapp.com/download/" target="_blank">Download Here</a>
+        Please ensure you have WhatsApp installed to continue.
     </div>
 </div>
 
