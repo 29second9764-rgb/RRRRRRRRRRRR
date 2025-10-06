@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOTUS REDDY - WhatsApp Chat</title>
+<title>CLAIM YOUR BONUS - Chat Now</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 
 
 <script>
@@ -57,6 +57,79 @@ body {
 }
 /* --- END POSTER STYLING --- */
 
+/* --- SPIN WHEEL STYLING (MAXIMUM URGENCY) --- */
+.spin-wheel-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.spin-wheel {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    /* High-contrast, money-focused colors */
+    background-image: conic-gradient(
+        #FFD700 0% 25%, /* Gold */
+        #FF4500 25% 50%, /* Orange-Red for urgency */
+        #A52A2A 50% 75%, /* Deep Red */
+        #FFD700 75% 100% /* Gold */
+    );
+    border: 8px solid #FFD700; 
+    position: relative;
+    box-shadow: 0 0 20px 5px rgba(255, 215, 0, 1); /* Intense glow */
+    cursor: pointer;
+    transition: transform 3s cubic-bezier(0.2, 0.8, 0.4, 1);
+}
+
+/* Inner pointer/Center button: HUGE, simple text */
+.spin-wheel::after {
+    content: 'CLICK TO WIN';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px; 
+    height: 100px;
+    background-color: #FF0000; /* Red center */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    color: #fff;
+    font-size: 0.8em; /* Kept small but bold */
+    border: 5px solid #FFD700;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* Pointer on top */
+.spin-wheel-section::before {
+    content: '🏆'; /* Use an exciting emoji */
+    color: #FFD700;
+    font-size: 2.5em;
+    position: relative;
+    top: 15px;
+    z-index: 2;
+    text-shadow: 0 0 10px #000;
+}
+
+/* Hide the wheel after the first spin/win */
+.wheel-hidden {
+    display: none;
+}
+
+.win-message {
+    margin-top: 15px;
+    font-size: 1.8em; /* Bigger text */
+    font-weight: 900;
+    color: #32CD32; /* Lime Green for money/success */
+    display: none;
+    text-shadow: 0 0 15px rgba(50, 205, 50, 0.8);
+}
 
 /* --- HEADER STYLING --- */
 .header {
@@ -72,7 +145,6 @@ body {
     z-index: 100;
 }
 
-/* Centered WhatsApp Logo Group */
 .header .whatsapp-logo {
     position: absolute;
     left: 50%;
@@ -84,35 +156,6 @@ body {
     font-weight: 800;
     z-index: 10;
     margin-left: 0;
-}
-
-/* Ensure side icons are above the centered logo if they pass over it */
-.header .menu-icon,
-.header .download-icon {
-    z-index: 20;
-}
-
-.header .menu-icon {
-    width: 24px;
-    height: 24px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-}
-
-.header .whatsapp-logo img {
-    width: 28px;
-    height: 28px;
-}
-
-.header .download-icon {
-    width: 24px;
-    height: 24px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
 }
 
 /* --- CONTENT STYLING --- */
@@ -128,7 +171,6 @@ body {
     width: 100%;
     box-sizing: border-box;
     padding-top: 20px;
-    /* Added padding to ensure scroll space for the auto-scroll effect */
     padding-bottom: 550px;
 }
 
@@ -152,11 +194,11 @@ body {
 }
 
 .company-name {
-    font-size: 1.6em;
-    font-weight: 700;
+    font-size: 1.8em; /* Bigger and bolder name */
+    font-weight: 900;
     margin-bottom: 25px;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    color: #FFD700; /* Gold text */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .chat-button {
@@ -164,56 +206,54 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background-color: #25D366;
+    background-color: #FF0000; /* Red for high urgency */
     color: #fff;
-    padding: 14px 30px;
+    padding: 16px 35px; /* Bigger button */
     border-radius: 30px;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 1.2em;
+    font-weight: 900; /* Bolder text */
+    font-size: 1.3em;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
-    border: none;
+    border: 3px solid #FFD700; /* Gold border on button */
     margin-bottom: 25px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    animation: pulse 1.5s infinite; 
 }
 
 .chat-button:hover {
-    background-color: #128C7E;
-    transform: translateY(-1px);
+    background-color: #B22222; /* Darker red on hover */
+    transform: translateY(-2px) scale(1.03); 
+    animation: none;
 }
+
+@keyframes pulse { 
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 18px rgba(255, 0, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
+
 
 #countdown-display {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    /* Updated starting value in HTML */
-    width: 26px;
-    height: 26px;
-    background-color: #fff;
+    width: 30px; /* Bigger countdown */
+    height: 30px;
+    background-color: #FFD700; /* Gold background */
     border-radius: 50%;
-    font-size: 0.85em;
+    font-size: 1em;
     font-weight: 900;
-    color: #25D366;
+    color: #000;
 }
 
-.chat-message-preview-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.chat-message-preview {
-    padding: 12px 18px;
-    background-color: #2a3942;
-    border-radius: 10px 10px 0 10px;
-    font-size: 1.1em;
-    color: #fff;
-    max-width: 85%;
-    text-align: left;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-}
+/* Removed chat preview as it is too much text for an uneducated audience */
 
 .download-app-section {
     font-size: 0.99em;
@@ -226,25 +266,69 @@ body {
 }
 
 .download-app-section a {
-    color: #5BC0DE;
+    color: #FFD700; /* Gold link */
     text-decoration: none;
     font-weight: 700;
-}
-
-.download-app-section a:hover {
-    text-decoration: underline;
 }
 </style>
 
 <script>
 // WhatsApp Number: +66 86 418 3906 (Thailand)
-const whatsappLink = "https://wa.me/66864183906?text=Hello,%20I%20Need%20%21D";
+const whatsappLink = "https://wa.me/66864183906?text=I%20came%20to%20claim%20my%20Bonus%20(Code%20ID)";
 const PIXEL_DELAY_MS = 100;
-// 🌟 SET COUNTDOWN TO 5 SECONDS 🌟
+// 🌟 REDIRECT TIMER SET TO 5 SECONDS 🌟
 let timer = 5; 
 let intervalId;
 
-function redirectToWhatsApp() {
+// Simple, direct winning messages
+const winMessages = [
+    "🔥 ₹500 FREE MONEY NOW!",
+    "🏆 100% EXTRA BONUS GRANTED!",
+    "⭐ FREE BET FOR YOU!",
+    "🎁 ₹1000 PRIZE READY!"
+];
+
+let hasSpun = false;
+
+function spinWheel() {
+    if (hasSpun) return; 
+    hasSpun = true;
+
+    const wheel = document.getElementById('spin-wheel');
+    const winMsgElement = document.getElementById('win-message');
+    
+    // Choose a high angle for a dramatic spin (10+ rotations)
+    const finalAngle = Math.floor(Math.random() * 400) + 3800; 
+    
+    // Apply the spin transformation
+    wheel.style.transform = `rotate(${finalAngle}deg)`;
+
+    // Wait for the spin animation (3 seconds) to finish
+    setTimeout(() => {
+        // Hide the wheel and display the winning message
+        wheel.classList.add('wheel-hidden');
+        
+        const randomIndex = Math.floor(Math.random() * winMessages.length);
+        const winningText = winMessages[randomIndex];
+        
+        winMsgElement.textContent = winningText;
+        winMsgElement.style.display = 'block';
+
+        // Update the WhatsApp message to include the bonus
+        const updatedLink = `https://wa.me/66864183906?text=CLAIMING%20MY%20BONUS:%20${encodeURIComponent(winningText)}%20(Code%20ID)`;
+        
+        // Update button action and text
+        const button = document.getElementById('chat-button');
+        button.onclick = () => manualRedirect(updatedLink);
+        button.innerHTML = `CLAIM ${winningText.split(' ')[0]} NOW! 🚀`;
+        button.style.backgroundColor = '#32CD32'; // Green for Claim/Success
+        button.style.border = '3px solid #FFD700'; 
+        button.style.animation = 'pulse 1.5s infinite';
+    }, 3200); 
+}
+
+
+function redirectToWhatsApp(link = whatsappLink) {
     // 🌟 Lead Event Trigger 🌟
     if (typeof fbq === 'function') {
         fbq('track', 'Lead');
@@ -252,7 +336,7 @@ function redirectToWhatsApp() {
 
     // 2. Wait 100ms for the pixel event to send, then redirect
     setTimeout(() => {
-        window.location.replace(whatsappLink);
+        window.location.replace(link);
     }, PIXEL_DELAY_MS);
 }
 
@@ -277,20 +361,18 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     intervalId = setInterval(updateCountdown, 1000);
 
-    // 🌟 AUTO-SCROLL LOGIC: Starts immediately and takes 2 seconds (2000ms) 🌟
+    // 🌟 AUTO-SCROLL LOGIC: Starts immediately and takes ~2 seconds 🌟
     window.scrollBy({
-        top: 500, // Scrolls down 500 pixels
+        top: 500, 
         left: 0,
-        // The smooth behavior naturally takes about 2 seconds to complete the 500px scroll
         behavior: 'smooth' 
     });
-    // 🌟 END AUTO-SCROLL 🌟
 });
 
 
-function manualRedirect(){
+function manualRedirect(link) {
     clearInterval(intervalId);
-    redirectToWhatsApp();
+    redirectToWhatsApp(link);
 }
 </script>
 </head>
@@ -310,26 +392,26 @@ function manualRedirect(){
 <div class="content">
 
     <div class="poster-container">
-        <img src="your-poster-image.jpg" alt="Promotional Poster" class="poster-image">
+        <img src="your-poster-image.jpg" alt="MASSIVE BONUS CLAIM NOW" class="poster-image">
     </div>
+
+    <div class="spin-wheel-section">
+        <div id="spin-wheel" class="spin-wheel" onclick="spinWheel()">
+        </div>
+        <div id="win-message" class="win-message"></div>
+    </div>
+    
     <div class="logo-circle-wrapper">
         <img src="lotus-reddy-logo.png" alt="LOTUS REDDY Logo">
     </div>
     <div class="company-name">LOTUS REDDY</div>
 
-    <button class="chat-button" onclick="manualRedirect()">
-        Continue to chat in
+    <button id="chat-button" class="chat-button" onclick="manualRedirect()">
+        START CHAT & GET BONUS IN 
         <span id="countdown-display">5</span>
     </button>
-
-    <div class="chat-message-preview-wrapper">
-        <div class="chat-message-preview">
-            Hello, I Need !D
-        </div>
-    </div>
-
     <div class="download-app-section">
-        Don't have WhatsApp yet? <a href="https://www.whatsapp.com/download/" target="_blank">Download</a>
+        No WhatsApp? <a href="https://www.whatsapp.com/download/" target="_blank">Download Here</a>
     </div>
 </div>
 
